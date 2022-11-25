@@ -1,10 +1,10 @@
-import style from "./style.module.css";
+import {StyledButton} from "./style.js"
 
 const Button = ({ children, type, onClick }) => {
   return (
-    <button className={style.Button} type={type} onClick={onClick}>
+    <StyledButton type={type} onClick={onClick}>
       {children}
-    </button>
+    </StyledButton>
   );
 }
 

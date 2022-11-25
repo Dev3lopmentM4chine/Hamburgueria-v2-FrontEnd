@@ -1,13 +1,13 @@
-import style from "./style.module.css";
+import {StyledInputSearch} from "./style.js"
 import {Button} from "../Button"
 
 const InputSearch = () => {
   return (
     <>
-      <div className={style.InputSearch}>
+      <StyledInputSearch>
         <input type="text" placeholder="Digitar Pesquisa" />
         <Button children={"Pesquisar"} type={"button"}/>
-      </div>
+      </StyledInputSearch>
     </>
   );
 };
