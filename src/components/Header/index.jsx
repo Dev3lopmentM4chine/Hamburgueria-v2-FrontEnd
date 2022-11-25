@@ -1,16 +1,17 @@
 import style from "./style.module.css";
-import Logo from "../Logo";
-import InputSearch from "../InputSearch";
+import {InputSearch} from "../InputSearch"
+import {Logo} from "../Logo"
 
 const Header = () => {
   return (
     <>
       <header className={style.Header}>
-        <Logo />
-        <InputSearch />
+        <Logo/>
+        <InputSearch/>
       </header>
     </>
   );
 };
 
-export default Header;
+
+export {Header}

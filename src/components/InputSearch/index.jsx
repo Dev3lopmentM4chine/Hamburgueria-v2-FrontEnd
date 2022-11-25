@@ -1,14 +1,15 @@
 import style from "./style.module.css";
+import {Button} from "../Button"
 
 const InputSearch = () => {
   return (
     <>
       <div className={style.InputSearch}>
         <input type="text" placeholder="Digitar Pesquisa" />
-        <button type="button">Pesquisar</button>
+        <Button children={"Pesquisar"} type={"button"}/>
       </div>
     </>
   );
 };
 
-export default InputSearch;
+export {InputSearch}
