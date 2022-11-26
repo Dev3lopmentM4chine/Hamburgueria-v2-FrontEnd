@@ -6,7 +6,6 @@ function Product({ prod }) {
     <StyledProduct>
       <figure>
         <img src={prod.img} alt="Imagem do produto" />
-        {console.log(prod.img)}
       </figure>
 
       <div className="ProductInfo">

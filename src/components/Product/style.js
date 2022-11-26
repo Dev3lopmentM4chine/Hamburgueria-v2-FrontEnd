@@ -9,8 +9,8 @@ export const StyledProduct = styled.li`
 
   display: flex;
   flex-direction: column;
-  gap: 26px;
   align-items: center;
+  gap: 26px;
 
   figure {
     width: 100%;
