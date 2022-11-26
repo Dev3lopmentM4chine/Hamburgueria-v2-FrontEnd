@@ -2,7 +2,7 @@ import "../styles/App.css";
 import {useEffect, useState} from "react"
 import { api } from "../services/api.js"
 import { Header } from "../components/Header";
-import {ProductsList} from "../components/ProductsList"
+import { Main } from "../components/Main";
 
 export const App = () => {
   const [list, setList] = useState([])
@@ -23,7 +23,7 @@ export const App = () => {
   return (
     <>
       <Header/>
-      <ProductsList list={list}/>
+      <Main list={list}/>
     </>
   );
 };

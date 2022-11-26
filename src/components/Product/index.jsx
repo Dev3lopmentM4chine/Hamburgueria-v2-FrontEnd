@@ -9,10 +9,10 @@ function Product({ prod }) {
         {console.log(prod.img)}
       </figure>
 
-      <div>
-        <h3>{prod.name}</h3>
-        <span>{prod.category}</span>
-        <span>{prod.price}</span>
+      <div className="ProductInfo">
+        <h3 className="name">{prod.name}</h3>
+        <span className="category">{prod.category}</span>
+        <span className="price">{(prod.price).toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
         <Button children={"Adicionar"} type={"button"}/>
       </div>
     </StyledProduct>
