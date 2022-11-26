@@ -1,11 +1,15 @@
 import {StyledProductsList} from "./style.js"
+import {Product} from "../Product"
 
-function ProductsList({ list }) {
+const ProductsList = ({ list }) => {
+
   return (
     <StyledProductsList>
-      
+      {
+        list.map((element, index) => <Product key={index} prod={element}/>)
+      }
     </StyledProductsList>
   )
 }
 
-export default ProductsList
+export {ProductsList}
