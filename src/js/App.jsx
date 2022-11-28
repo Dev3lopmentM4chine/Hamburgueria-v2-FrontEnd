@@ -1,4 +1,3 @@
-import "../styles/App.css";
 import { useEffect, useState } from "react";
 import { getAllProducts } from "../services/request.js";
 import { Header } from "../components/Header";

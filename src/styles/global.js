@@ -1,3 +1,6 @@
+import {createGlobalStyle} from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
 :root{
     /* Color */
     --color-primary: #27AE60;
@@ -34,3 +37,4 @@
     --radius-0: 8px;
     --radius-1: 4px;
 }
+`;
