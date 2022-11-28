@@ -11,14 +11,11 @@ export const StyledProductsList = styled.ul`
   padding-left: 15px;
   padding-right: 15px;
 
-  background-color: aqua;
-
   @media screen and (min-width: 800px) {
     width: 940px;
     max-width: 940px;
     height: 735px;
     align-items: flex-start;
-    /* justify-content: space-between; */
     overflow: unset;
     flex-wrap: wrap;
     padding: 0;

@@ -1,29 +1,42 @@
 import "../styles/App.css";
-import {useEffect, useState} from "react"
-import { api } from "../services/api.js"
+import { useEffect, useState } from "react";
+import { getAllProducts } from "../services/request.js";
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
 
 export const App = () => {
-  const [list, setList] = useState([])
+  const [list, setList] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentSale, setCurrentSale] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
-  useEffect(()=>{
-    const getAllProducts = async () => {
-      try {
-        const response = await api.get('')
-        
-        setList(response.data)
-      } catch (error) {
-      }
+  useEffect(() => {
+    getAllProducts(setList);
+    console.log(currentSale)
+  }, [currentSale]);
+
+  const handleClick = (productId) => {
+    const productSale = list.filter((element) => {
+      return element.id === productId;
+    });
+
+    if (currentSale.length > 0) {
+      setCurrentSale([...currentSale, productSale[0]]);
+    } else {
+      setCurrentSale([...productSale]);
     }
-
-    getAllProducts()
-  }, [])
+  };
 
   return (
     <>
-      <Header/>
-      <Main list={list}/>
+      <Header />
+      <Main 
+      list={list} 
+      handleClick={handleClick}
+      currentSale={currentSale}
+      setCurrentSale={setCurrentSale}
+      
+       />
     </>
   );
 };

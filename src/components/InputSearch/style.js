@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInputSearch = styled.div`
+export const StyledInputSearch = styled.form`
   background-color: var(--color-white);
   width: 90%;
   max-width: 382px;

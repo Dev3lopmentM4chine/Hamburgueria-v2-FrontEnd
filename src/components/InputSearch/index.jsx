@@ -1,12 +1,21 @@
 import {StyledInputSearch} from "./style.js"
 import {Button} from "../Button"
 
-const InputSearch = () => {
+const InputSearch = ({ list }) => {
+  const search = (body) => {
+    let resp = ""
+  }
+
   return (
     <>
-      <StyledInputSearch>
-        <input type="text" placeholder="Digitar Pesquisa" />
-        <Button children={"Pesquisar"} type={"button"}/>
+      <StyledInputSearch onSubmit={() => {}}>
+        <input 
+        type="text" 
+        placeholder="Digitar Pesquisa" 
+        required
+        />
+
+        <Button children={"Pesquisar"} type={"submit"}/>
       </StyledInputSearch>
     </>
   );

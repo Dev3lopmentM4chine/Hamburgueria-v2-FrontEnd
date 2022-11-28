@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 const StyledMain = styled.main`
-    width: 100%;
-    margin: 0 auto;
-    padding: 15px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
-`
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 0;
+  }
+`;
 
-export { StyledMain }
+export { StyledMain };
