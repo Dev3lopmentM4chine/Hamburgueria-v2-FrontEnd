@@ -4,7 +4,7 @@ import { CartTotal } from "../CartTotal";
 
 const Cart = ({ currentSale, setCurrentSale }) => {
   return (
-    <StyledCart size={true}>
+    <StyledCart>
       <div className="cartTitle">
         <h3>Carrinho de compras</h3>
       </div>
