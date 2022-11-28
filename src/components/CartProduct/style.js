@@ -10,6 +10,7 @@ export const StyledCartProduct = styled.li`
 
   figure {
     width: 80px;
+    min-width: 80px;
     height: 80px;
     overflow: hidden;
     border-radius: var(--radius-0);
@@ -31,6 +32,10 @@ export const StyledCartProduct = styled.li`
     font-weight: var(--font-weight-3);
     font-size: var(--font-size-2);
     color: var(--color-grey-100);
+
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
   }
   .productInfo span {
     font-weight: var(--font-weight-0);

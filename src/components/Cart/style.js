@@ -3,10 +3,9 @@ import styled from "styled-components";
 export const StyledCart = styled.div`
   width: 95%;
   max-width: 382px;
-  height: 223px;
-  max-height: 535px;
+  /* height: 223px; */
+  min-height: 535px;
   border-radius: var(--radius-0);
-  background-color: aqua;
 
   @media (min-width: 800px) {
     width: 365px;
@@ -31,7 +30,8 @@ export const StyledCart = styled.div`
 
   ul {
     width: 100%;
-    height: 158px;
+    min-height: 158px;
+    max-height: 360px;
     background-color: var(--color-grey-0);
     overflow: auto;
     padding-top: 25px;
@@ -45,6 +45,7 @@ export const StyledCart = styled.div`
   .noItens {
     width: 100%;
     height: 100%;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
