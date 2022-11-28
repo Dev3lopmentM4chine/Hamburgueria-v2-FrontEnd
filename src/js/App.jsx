@@ -6,14 +6,14 @@ import { toast } from "react-toastify";
 
 export const App = () => {
   const [list, setList] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState("");
   const [currentSale, setCurrentSale] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     getAllProducts(setList);
-    console.log(currentSale)
-  }, [currentSale]);
+    console.log(filteredProducts)
+  }, [filteredProducts]);
 
   const handleClick = (productId) => {
     const productSale = list.filter((element) => {
@@ -42,12 +42,13 @@ export const App = () => {
 
   return (
     <>
-      <Header />
+      <Header setFilteredProducts={setFilteredProducts}/>
       <Main 
       list={list} 
       handleClick={handleClick}
       currentSale={currentSale}
       setCurrentSale={setCurrentSale}
+      filteredProducts={filteredProducts}
       
        />
     </>

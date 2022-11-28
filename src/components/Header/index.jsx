@@ -2,11 +2,11 @@ import { StyledHeader } from "./style.js";
 import { InputSearch } from "../InputSearch";
 import { Logo } from "../Logo";
 
-const Header = ({ filteredProducts }) => {
+const Header = ({ filteredProducts, setFilteredProducts }) => {
   return (
     <StyledHeader>
       <Logo />
-      <InputSearch />
+      <InputSearch setFilteredProducts={setFilteredProducts}/>
     </StyledHeader>
   );
 };
