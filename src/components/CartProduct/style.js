@@ -32,9 +32,9 @@ export const StyledCartProduct = styled.li`
     font-weight: var(--font-weight-3);
     font-size: var(--font-size-2);
     color: var(--color-grey-100);
-
+    max-width: 9ch;
     overflow: hidden;
-    white-space: pre-wrap;
+    white-space: nowrap;
     text-overflow: ellipsis;
   }
   .productInfo span {
