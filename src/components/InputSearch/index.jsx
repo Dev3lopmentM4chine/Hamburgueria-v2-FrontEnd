@@ -2,12 +2,6 @@ import {StyledInputSearch} from "./style.js"
 import {Button} from "../Button"
 
 const InputSearch = ({ list, setFilteredProducts }) => {
-  const search = (body) => {
-    let resp = ""
-  }
-
-  
-
   return (
     <>
       <StyledInputSearch onSubmit={(event) => {

@@ -12,7 +12,6 @@ export const App = () => {
 
   useEffect(() => {
     getAllProducts(setList);
-    console.log(filteredProducts)
   }, [filteredProducts]);
 
   const handleClick = (productId) => {
@@ -49,7 +48,6 @@ export const App = () => {
       currentSale={currentSale}
       setCurrentSale={setCurrentSale}
       filteredProducts={filteredProducts}
-      
        />
     </>
   );
