@@ -12,6 +12,8 @@ export const App = () => {
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
+    // const token = JSON.parse(localStorage.getItem("@TOKEN")) || null
+
     getAllProducts(setList);
   }, [filteredProducts]);
 

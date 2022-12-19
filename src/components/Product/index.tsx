@@ -1,7 +1,8 @@
-import { StyledProduct } from "./style.js";
+import { StyledProduct } from "./style";
 import { Button } from "../Button";
+import { IProductProps } from "./interface";
 
-function Product({ prod, handleClick }) {
+function Product({ prod, handleClick }: IProductProps) {
   return (
     <StyledProduct>
       <figure>

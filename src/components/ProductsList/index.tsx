@@ -1,8 +1,10 @@
-import { StyledProductsList } from "./style.js";
+import { StyledProductsList } from "./style";
 import { Product } from "../Product";
 import { useEffect, useState } from "react";
+import { IProducts } from "../../services/request"
+import { IProductListProps } from "./interface";
 
-const ProductsList = ({ list, filteredProducts, handleClick }) => {
+const ProductsList = ({ list, filteredProducts, handleClick }: IProductListProps) => {
   const [filterProductList, setFilterProductList] = useState([]);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const ProductsList = ({ list, filteredProducts, handleClick }) => {
         ? filterProductList.map((element, index) => (
             <Product key={index} prod={element} handleClick={handleClick} />
           ))
-        : list.map((element, index) => (
+        : list.map((element: IProducts, index: number) => (
             <Product key={index} prod={element} handleClick={handleClick} />
           ))}
     </StyledProductsList>
