@@ -17,7 +17,7 @@ const ProductsList = ({ list, filteredProducts, handleClick }) => {
 
   return (
     <StyledProductsList>
-      {filteredProducts !== ""
+      {filteredProducts.length > 0
         ? filterProductList.map((element, index) => (
             <Product key={index} prod={element} handleClick={handleClick} />
           ))

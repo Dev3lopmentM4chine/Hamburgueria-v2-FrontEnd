@@ -3,18 +3,19 @@ import { getAllProducts } from "../services/request.js";
 import { Header } from "../components/Header";
 import { Main } from "../components/Main";
 import { toast } from "react-toastify";
+import { IProducts } from "../services/request.js";
 
 export const App = () => {
-  const [list, setList] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState("");
-  const [currentSale, setCurrentSale] = useState([]);
+  const [list, setList] = useState([] as IProducts[]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [currentSale, setCurrentSale] = useState([] as IProducts[]);
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     getAllProducts(setList);
   }, [filteredProducts]);
 
-  const handleClick = (productId) => {
+  const handleClick = (productId: number | null) => {
     const productSale = list.filter((element) => {
       return element.id === productId;
     });
