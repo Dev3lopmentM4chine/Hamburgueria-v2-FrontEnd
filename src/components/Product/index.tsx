@@ -2,7 +2,7 @@ import { StyledProduct } from "./style";
 import { Button } from "../Button";
 import { IProductProps } from "./interface";
 
-function Product({ prod, handleClick }: IProductProps) {
+export const Product = ({ prod, handleClick }: IProductProps) => {
   return (
     <StyledProduct>
       <figure>
@@ -27,5 +27,3 @@ function Product({ prod, handleClick }: IProductProps) {
     </StyledProduct>
   );
 }
-
-export { Product };

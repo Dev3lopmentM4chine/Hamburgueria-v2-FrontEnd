@@ -1,17 +1,9 @@
 import { StyledMain } from "./style";
 import { ProductsList } from "../ProductsList/index.jsx";
 import { Cart } from "../Cart";
-import { IProducts } from "../../services/request";
+import { IMainProps } from "./interface";
 
-interface IMainProps{
-  list: [] | IProducts[],
-  currentSale: [] | IProducts[],
-  setCurrentSale: (list: IProducts[]) => void,
-  filteredProducts: string,
-  handleClick: (productId: number | null) => void,
-}
-
-const Main = ({
+export const Main = ({
   list,
   currentSale,
   setCurrentSale,
@@ -30,4 +22,3 @@ const Main = ({
   );
 };
 
-export { Main };

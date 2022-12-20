@@ -1,7 +1,7 @@
 import { StyledCartProduct } from "./style.js";
 import { Button } from "../Button";
 
-const CartProduct = ({ prod, currentSale ,setCurrentSale }) => {
+export const CartProduct = ({ prod, currentSale ,setCurrentSale }) => {
   const deleteProduct = (productId) => {
     setCurrentSale(currentSale.filter(element => element.id !== productId))
   }
@@ -20,5 +20,3 @@ const CartProduct = ({ prod, currentSale ,setCurrentSale }) => {
     </StyledCartProduct>
   );
 };
-
-export { CartProduct };

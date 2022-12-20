@@ -2,7 +2,7 @@ import { StyledCart } from "./style.js";
 import { CartProduct } from "../CartProduct";
 import { CartTotal } from "../CartTotal";
 
-const Cart = ({ currentSale, setCurrentSale }) => {
+export const Cart = ({ currentSale, setCurrentSale }) => {
   return (
     <StyledCart>
       <div className="cartTitle">
@@ -34,4 +34,3 @@ const Cart = ({ currentSale, setCurrentSale }) => {
   );
 };
 
-export { Cart };

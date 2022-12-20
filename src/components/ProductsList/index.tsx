@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { IProducts } from "../../services/request";
 import { IProductListProps } from "./interface";
 
-const ProductsList = ({
+export const ProductsList = ({
   list,
   filteredProducts,
   handleClick,
@@ -33,5 +33,3 @@ const ProductsList = ({
     </StyledProductsList>
   );
 };
-
-export { ProductsList };

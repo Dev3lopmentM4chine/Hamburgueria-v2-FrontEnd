@@ -1,7 +1,7 @@
 import {StyledInputSearch} from "./style.js"
 import {Button} from "../Button"
 
-const InputSearch = ({ list, setFilteredProducts }) => {
+export const InputSearch = ({ list, setFilteredProducts }) => {
   return (
     <>
       <StyledInputSearch onSubmit={(event) => {
@@ -20,4 +20,4 @@ const InputSearch = ({ list, setFilteredProducts }) => {
   );
 };
 
-export {InputSearch}
+

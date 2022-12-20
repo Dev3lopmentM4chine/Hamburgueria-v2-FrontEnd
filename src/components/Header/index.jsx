@@ -2,7 +2,7 @@ import { StyledHeader } from "./style.js";
 import { InputSearch } from "../InputSearch";
 import { Logo } from "../Logo";
 
-const Header = ({ setFilteredProducts }) => {
+export const Header = ({ setFilteredProducts }) => {
   return (
     <StyledHeader>
       <Logo />
@@ -11,4 +11,4 @@ const Header = ({ setFilteredProducts }) => {
   );
 };
 
-export { Header };
+
