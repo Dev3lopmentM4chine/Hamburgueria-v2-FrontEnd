@@ -1,5 +1,5 @@
 import { StyledMain } from "./style";
-import { ProductsList } from "../ProductsList/index.jsx";
+import { ProductsList } from "../ProductsList/index";
 import { Cart } from "../Cart";
 import { IMainProps } from "./interface";
 

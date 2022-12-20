@@ -1,5 +1,5 @@
 import {StyledCartTotal} from "./style.js"
-import { Button } from "../Button/index.jsx"
+import { Button } from "../Button/index"
 
 export const CartTotal = ({ currentSale, setCurrentSale }) => {
   const counter = currentSale.reduce((x, y) => x + y.price, 0)

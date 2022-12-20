@@ -9,13 +9,15 @@ export const ProductsList = ({
   filteredProducts,
   handleClick,
 }: IProductListProps) => {
-  const [filterProductList, setFilterProductList] = useState<IProducts[]>([] as IProducts[]);
+  const [filterProductList, setFilterProductList] = useState<IProducts[]>(
+    [] as IProducts[]
+  );
 
   useEffect(() => {
     setFilterProductList(
       list.filter(
         (prod) =>
-        prod.name.toLowerCase().includes(filteredProducts.toLowerCase()) ||
+          prod.name.toLowerCase().includes(filteredProducts.toLowerCase()) ||
           prod.category.toLowerCase().includes(filteredProducts.toLowerCase())
       )
     );

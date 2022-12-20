@@ -16,7 +16,7 @@ export const CartProduct = ({ prod, currentSale ,setCurrentSale }) => {
         <h3 className="name">{prod.name}</h3>
         <span className="category">{prod.category}</span>
       </div>
-      <Button children={"Remover"} type={"button"} onClick={() => deleteProduct(prod.id)}/>
+      <Button children={"Remover"} type="button" onClick={() => deleteProduct(prod.id)}/>
     </StyledCartProduct>
   );
 };
