@@ -1,17 +1,21 @@
 import { StyledProductsList } from "./style";
 import { Product } from "../Product";
 import { useEffect, useState } from "react";
-import { IProducts } from "../../services/request"
+import { IProducts } from "../../services/request";
 import { IProductListProps } from "./interface";
 
-const ProductsList = ({ list, filteredProducts, handleClick }: IProductListProps) => {
-  const [filterProductList, setFilterProductList] = useState([]);
+const ProductsList = ({
+  list,
+  filteredProducts,
+  handleClick,
+}: IProductListProps) => {
+  const [filterProductList, setFilterProductList] = useState<IProducts[]>([] as IProducts[]);
 
   useEffect(() => {
     setFilterProductList(
       list.filter(
         (prod) =>
-          prod.name.toLowerCase().includes(filteredProducts.toLowerCase()) ||
+        prod.name.toLowerCase().includes(filteredProducts.toLowerCase()) ||
           prod.category.toLowerCase().includes(filteredProducts.toLowerCase())
       )
     );

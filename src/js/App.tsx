@@ -6,9 +6,9 @@ import { toast } from "react-toastify";
 import { IProducts } from "../services/request.js";
 
 export const App = () => {
-  const [list, setList] = useState([] as IProducts[]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [currentSale, setCurrentSale] = useState([] as IProducts[]);
+  const [list, setList] = useState<IProducts[]>([] as IProducts[]);
+  const [filteredProducts, setFilteredProducts] = useState("");
+  const [currentSale, setCurrentSale] = useState<IProducts[]>([] as IProducts[]);
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {

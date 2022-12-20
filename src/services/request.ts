@@ -25,7 +25,7 @@ export const getAllProducts = async (
   try {
     const response = await api.get("/products", {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQzODI3MSwiZXhwIjoxNjcxNDQxODcxLCJzdWIiOiI1OCJ9.4VonrnSemc-dYQ6I3uoSRQhghk04tfxsIQdm_ywX5kE`,
+        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQ3NzcxMywiZXhwIjoxNjcxNDgxMzEzLCJzdWIiOiI1OCJ9.0cCmOf-2c3LDDtojQvCiv-9Vq4uje2xPlDnMZJ9oTlM`,
       },
     });
     setList(response.data);

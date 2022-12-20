@@ -7,7 +7,7 @@ interface IMainProps{
   list: [] | IProducts[],
   currentSale: [] | IProducts[],
   setCurrentSale: (list: IProducts[]) => void,
-  filteredProducts: [] | IProducts[],
+  filteredProducts: string,
   handleClick: (productId: number | null) => void,
 }
 
