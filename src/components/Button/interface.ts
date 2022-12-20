@@ -1,7 +1,5 @@
-import React from "react";
-
 export interface IButtonProps {
-  children: React.ReactNode;
+  children: string;
   type: "button" | "submit" | "reset";
   onClick?: () => void;
 }

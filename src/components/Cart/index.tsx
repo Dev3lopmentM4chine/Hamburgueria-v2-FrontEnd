@@ -1,8 +1,9 @@
-import { StyledCart } from "./style.js";
+import { StyledCart } from "./style";
 import { CartProduct } from "../CartProduct";
 import { CartTotal } from "../CartTotal";
+import { ICartProps } from "./interface";
 
-export const Cart = ({ currentSale, setCurrentSale }) => {
+export const Cart = ({ currentSale, setCurrentSale }: ICartProps) => {
   return (
     <StyledCart>
       <div className="cartTitle">
@@ -28,7 +29,7 @@ export const Cart = ({ currentSale, setCurrentSale }) => {
       {currentSale.length > 0 ? (
         <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale} />
       ) : (
-        ""
+        null
       )}
     </StyledCart>
   );

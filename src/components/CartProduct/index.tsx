@@ -1,9 +1,11 @@
 import { StyledCartProduct } from "./style.js";
 import { Button } from "../Button";
+import { IProducts } from "../../services/interface.js";
+import { ICartProductProps } from "./interface.js";
 
-export const CartProduct = ({ prod, currentSale ,setCurrentSale }) => {
-  const deleteProduct = (productId) => {
-    setCurrentSale(currentSale.filter(element => element.id !== productId))
+export const CartProduct = ({ prod, currentSale ,setCurrentSale }: ICartProductProps) => {
+  const deleteProduct = (productId: number) => {
+    setCurrentSale(currentSale.filter((element: IProducts) => element.id !== productId))
   }
 
   return (

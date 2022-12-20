@@ -1,19 +1,35 @@
 import { StyledInputSearch } from "./style";
 import { Button } from "../Button";
 import { IInputSearchProps } from "./interface";
+import { useForm } from "react-hook-form";
+
+interface IsubmitProp{
+  inputText?: string;
+}
 
 export const InputSearch = ({ setFilteredProducts }: IInputSearchProps) => {
+  const { register, handleSubmit, formState: reset } = useForm();
+
+  
+
+  const submit = (data: IsubmitProp) => {
+    setFilteredProducts(data.inputText)
+  }
+
   return (
     <>
       <StyledInputSearch
-        onSubmit={(event) => {
-          event.preventDefault();
-          setFilteredProducts(event.target.inputText.value);
-        }}
+        onSubmit={handleSubmit(submit)}
+        noValidate
       >
-        <input name="inputText" type="text" placeholder="Digitar Pesquisa" />
+        <input
+          id="inputText"
+          type="text"
+          placeholder="Digitar Pesquisa"
+          {...register("inputText")}
+        />
 
-        <Button children={"Pesquisar"} type={"submit"} />
+        <Button children={"Pesquisar"} type="submit" />
       </StyledInputSearch>
     </>
   );

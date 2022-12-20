@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const StyledCartTotal = styled.div`
   width: 100%;
-  /* max-width: 343px; */
   height: 104px;
   display: flex;
   flex-direction: column;

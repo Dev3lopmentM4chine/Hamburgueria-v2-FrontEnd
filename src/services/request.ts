@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import { Ilogin, Iregister, IgetAllProductsProps } from "./interface";
 
 export interface IProducts {
   id: number;
@@ -8,24 +9,11 @@ export interface IProducts {
   img: string;
 }
 
-export interface ILogin {
-  email: string;
-  password: number | string;
-}
-
-export interface IRegister{
-	name: string,
-	email: string,
-	password: number | string,
-}
-
-export const getAllProducts = async (
-  setList: (data: IProducts[]) => void
-) => {
+export const getAllProducts = async (setList: (data: IProducts[]) => void) => {
   try {
     const response = await api.get("/products", {
       headers: {
-        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTQ3NzcxMywiZXhwIjoxNjcxNDgxMzEzLCJzdWIiOiI1OCJ9.0cCmOf-2c3LDDtojQvCiv-9Vq4uje2xPlDnMZJ9oTlM`,
+        authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTU1MzkyMywiZXhwIjoxNjcxNTU3NTIzLCJzdWIiOiI3NSJ9.OElGonvoHR2PTsTCvWteNwETPKeWh1gVNFnYgiB8csc`,
       },
     });
     setList(response.data);
@@ -34,18 +22,18 @@ export const getAllProducts = async (
   }
 };
 
-export const login = async (data: ILogin) => {
+export const login = async (data: Ilogin) => {
   try {
     const response = await api.post("/login", data);
     //salvar no local storage
-    localStorage.setItem("", JSON.stringify(response.data.accesstoken))
+    localStorage.setItem("", JSON.stringify(response.data.accesstoken));
     //redirecionar para a home
   } catch (error) {
     console.log(error);
   }
 };
 
-export const register = async (data: IRegister) => {
+export const register = async (data: Iregister) => {
   try {
     const response = await api.post("/users", data);
     //toastify de sucesso
