@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
   width: 100%;
-  height: 139px;
+  height: 80px;
   background-color: var(--color-grey-0);
   display: flex;
   flex-direction: column;
@@ -15,5 +15,16 @@ export const StyledHeader = styled.header`
     flex-direction: row;
     justify-content: space-between;
     padding: 0 100px;
+  }
+
+  & > button[type="button"] {
+    background-color: gray;
+  }
+
+  & > .navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 `;

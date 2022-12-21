@@ -3,6 +3,7 @@ import { Button } from "../Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useContext } from "react";
 import { CardContext } from "../../context/cardContext";
+import { FaSearch } from "react-icons/fa"
 
 interface IsubmitProp{
   inputText: string;
@@ -30,7 +31,9 @@ export const InputSearch = () => {
           {...register("inputText")}
         />
 
-        <Button children={"Pesquisar"} type="submit" />
+        <Button type="submit">
+          <FaSearch/>
+        </Button>
       </StyledInputSearch>
     </>
   );

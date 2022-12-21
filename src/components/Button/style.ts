@@ -10,6 +10,10 @@ export const StyledButton = styled.button`
   border-radius: var(--radius-0);
   padding: 0px 20px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   :hover {
     opacity: 0.5;
     transition: 0.5s;

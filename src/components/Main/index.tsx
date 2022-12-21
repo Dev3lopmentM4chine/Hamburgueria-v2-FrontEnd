@@ -6,7 +6,7 @@ export const Main = () => {
   return (
     <StyledMain>
       <ProductsList />
-      <Cart />
+      {/* <Cart /> */}
     </StyledMain>
   );
 };

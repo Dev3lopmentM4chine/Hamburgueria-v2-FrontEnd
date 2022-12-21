@@ -1,7 +1,7 @@
 import { StyledButton } from "./style.js";
 
 interface IButtonProps {
-  children: string;
+  children: string | React.ReactNode;
   type: "button" | "submit" | "reset";
   onClick?: () => void;
 }

@@ -1,7 +1,8 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { IProducts } from "../services/interface";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 interface IUserProviderProps {
   children: React.ReactNode;
@@ -10,7 +11,6 @@ interface IUserProviderProps {
 interface IUserCotextProps {
   login: (data: Ilogin) => void;
   register: (data: Iregister) => void;
-  getAllProducts: ({setList, token}: IgetAllProductsProps) => void;
 }
 
 interface Ilogin {
@@ -24,7 +24,7 @@ interface Iregister {
   password: number | string;
 }
 
-interface IgetAllProductsProps{
+interface IgetAllProductsProps {
   setList: React.Dispatch<React.SetStateAction<IProducts[]>>;
   token?: string;
 }
@@ -32,42 +32,42 @@ interface IgetAllProductsProps{
 export const UserContext = createContext({} as IUserCotextProps);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
+  const [list, setList] = useState<IProducts[]>([] as IProducts[]);
+  const [filteredProducts, setFilteredProducts] = useState("");
+
+  const navigate = useNavigate();
+
   const login = async (data: Ilogin) => {
     try {
       const response = await api.post("/login", data);
-      //salvar no local storage
-      localStorage.setItem("", JSON.stringify(response.data.accesstoken));
-      //redirecionar para a home
+      localStorage.setItem(
+        "@accesstoken",
+        JSON.stringify(response.data.accesstoken)
+      );
+      navigate("/home");
     } catch (error) {
       console.log(error);
+      toast.error("Email ou senha incorretos!");
     }
   };
 
   const register = async (data: Iregister) => {
     try {
       const response = await api.post("/users", data);
-      //toastify de sucesso
-    } catch (error) {
-      //toastify de erro
-      console.log(error);
-    }
-  };
-
-  const getAllProducts = async ({setList, token}: IgetAllProductsProps) => {
-    try {
-      const response = await api.get("/products", {
-        headers: {
-          authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTU5ODkyOSwiZXhwIjoxNjcxNjAyNTI5LCJzdWIiOiIzIn0.gbF941-z5ixSQR5umPrwrQ-_Jtgc1J0eQu65lFlLyGc`,
-        },
-      });
-      setList(response.data);
+      toast.success("Conta criada com sucesso!");
     } catch (error) {
       console.log(error);
+      // toast.error("")
     }
   };
 
   return (
-    <UserContext.Provider value={{ login, register, getAllProducts }}>
+    <UserContext.Provider
+      value={{
+        login,
+        register,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

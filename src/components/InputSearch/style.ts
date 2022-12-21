@@ -7,26 +7,30 @@ export const StyledInputSearch = styled.form`
   height: 60px;
   border: 2px solid var(--color-grey-20);
   border-radius: var(--radius-0);
+  padding: 0px 10px 0px 15px;
 
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   @media screen and (min-width: 80px) {
     max-width: 365px;
   }
 
-  input {
+  & > input {
     font-weight: var(--font-weight-0);
     font-size: var(--font-size-4);
     color: var(--color-grey-50);
     width: 50%;
+
+    ::-webkit-input-placeholder {
+      color: var(--color-grey-20);
+    }
   }
 
-  input::-webkit-input-placeholder {
-    color: var(--color-grey-20);
-  }
+  & > button {
+    width: 53px;
 
-  button {}
+  }
 `;

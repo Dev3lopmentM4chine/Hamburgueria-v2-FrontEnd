@@ -3,6 +3,7 @@ import { Product } from "../Product";
 import { useEffect, useState, useContext } from "react";
 import { IProducts } from "../../services/interface";
 import { CardContext } from "../../context/cardContext";
+import { UserContext } from "../../context/userContext";
 
 export const ProductsList = () => {
   const {list, filteredProducts, handleClick} = useContext(CardContext)
