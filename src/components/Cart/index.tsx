@@ -1,9 +1,12 @@
 import { StyledCart } from "./style";
 import { CartProduct } from "../CartProduct";
 import { CartTotal } from "../CartTotal";
-import { ICartProps } from "./interface";
+import { useContext } from "react";
+import { CardContext } from "../../context/cardContext";
 
-export const Cart = ({ currentSale, setCurrentSale }: ICartProps) => {
+export const Cart = () => {
+  const {currentSale} = useContext(CardContext)
+
   return (
     <StyledCart>
       <div className="cartTitle">
@@ -15,8 +18,6 @@ export const Cart = ({ currentSale, setCurrentSale }: ICartProps) => {
             <CartProduct
               key={index}
               prod={element}
-              currentSale={currentSale}
-              setCurrentSale={setCurrentSale}
             />
           ))
         ) : (
@@ -27,7 +28,7 @@ export const Cart = ({ currentSale, setCurrentSale }: ICartProps) => {
         )}
       </ul>
       {currentSale.length > 0 ? (
-        <CartTotal currentSale={currentSale} setCurrentSale={setCurrentSale} />
+        <CartTotal />
       ) : (
         null
       )}

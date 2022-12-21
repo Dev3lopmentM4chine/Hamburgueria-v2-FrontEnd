@@ -1,5 +1,11 @@
 import { StyledButton } from "./style.js";
-import { IButtonProps } from "./interface.js";
+
+interface IButtonProps {
+  children: string;
+  type: "button" | "submit" | "reset";
+  onClick?: () => void;
+}
+
 
 export const Button = ({ children, type, onClick }: IButtonProps) => {
   return (

@@ -1,18 +1,19 @@
 import { StyledInputSearch } from "./style";
 import { Button } from "../Button";
-import { IInputSearchProps } from "./interface";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useContext } from "react";
+import { CardContext } from "../../context/cardContext";
 
 interface IsubmitProp{
-  inputText?: string;
+  inputText: string;
 }
 
-export const InputSearch = ({ setFilteredProducts }: IInputSearchProps) => {
-  const { register, handleSubmit, formState: reset } = useForm();
+export const InputSearch = () => {
+  const { setFilteredProducts } = useContext(CardContext)
 
-  
+  const { register, handleSubmit, formState: reset } = useForm<IsubmitProp>();
 
-  const submit = (data: IsubmitProp) => {
+  const submit: SubmitHandler<IsubmitProp> = (data) => {
     setFilteredProducts(data.inputText)
   }
 

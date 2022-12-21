@@ -1,8 +1,17 @@
 import { StyledProduct } from "./style";
 import { Button } from "../Button";
-import { IProductProps } from "./interface";
+import { CardContext } from "../../context/cardContext";
+import { useContext } from "react"
+import { IProducts } from "../../services/interface";
 
-export const Product = ({ prod, handleClick }: IProductProps) => {
+interface IProductProps {
+  prod: IProducts;
+}
+
+
+export const Product = ({ prod }: IProductProps) => {
+  const { handleClick } = useContext(CardContext)
+
   return (
     <StyledProduct>
       <figure>

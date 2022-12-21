@@ -1,13 +1,12 @@
 import { StyledHeader } from "./style";
 import { InputSearch } from "../InputSearch";
 import { Logo } from "../Logo";
-import { IHeaderProps } from "./interface";
 
-export const Header = ({ setFilteredProducts }: IHeaderProps) => {
+export const Header = () => {
   return (
     <StyledHeader>
       <Logo />
-      <InputSearch setFilteredProducts={setFilteredProducts}/>
+      <InputSearch />
     </StyledHeader>
   );
 };
