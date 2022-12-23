@@ -31,6 +31,9 @@ export const StyledInputSearch = styled.form`
 
   & > button {
     width: 53px;
-
+    
+    svg{
+      color: var(--color-white);
+    }
   }
 `;

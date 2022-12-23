@@ -31,7 +31,7 @@ export const InputSearch = () => {
           {...register("inputText")}
         />
 
-        <Button type="submit">
+        <Button type="submit" styledSize="" styledColor="" styledIcon={true}>
           <FaSearch/>
         </Button>
       </StyledInputSearch>

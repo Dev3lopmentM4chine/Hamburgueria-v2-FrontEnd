@@ -1,9 +1,14 @@
 import { StyledCartProduct } from "./style";
 import { Button } from "../Button";
 import { IProducts } from "../../services/interface";
-import { ICartProductProps } from "./interface";
 import { CardContext } from "../../context/cardContext";
 import { useContext } from "react"
+import { FaTrash } from "react-icons/fa"
+
+interface ICartProductProps {
+  prod: IProducts;
+}
+
 
 export const CartProduct = ({
   prod
@@ -28,10 +33,13 @@ export const CartProduct = ({
         <span className="category">{prod.category}</span>
       </div>
       <Button
-        children={"Remover"}
         type="button"
         onClick={() => deleteProduct(prod.id)}
-      />
+        styledSize=""
+        styledColor="unset"
+      >
+        <FaTrash/> 
+      </Button>
     </StyledCartProduct>
   );
 };

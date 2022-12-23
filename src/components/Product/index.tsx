@@ -31,6 +31,8 @@ export const Product = ({ prod }: IProductProps) => {
           children={"Adicionar"}
           type={"button"}
           onClick={() => handleClick(prod.id)}
+          styledSize=""
+          styledColor="grey"
         />
       </div>
     </StyledProduct>

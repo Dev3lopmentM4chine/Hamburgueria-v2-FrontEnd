@@ -24,11 +24,6 @@ interface Iregister {
   password: number | string;
 }
 
-interface IgetAllProductsProps {
-  setList: React.Dispatch<React.SetStateAction<IProducts[]>>;
-  token?: string;
-}
-
 export const UserContext = createContext({} as IUserCotextProps);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
@@ -40,11 +35,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const login = async (data: Ilogin) => {
     try {
       const response = await api.post("/login", data);
-      localStorage.setItem(
-        "@accesstoken",
-        JSON.stringify(response.data.accesstoken)
-      );
+      localStorage.setItem("@accessToken", response.data.accessToken);
       navigate("/home");
+
+      // console.log(response)
     } catch (error) {
       console.log(error);
       toast.error("Email ou senha incorretos!");

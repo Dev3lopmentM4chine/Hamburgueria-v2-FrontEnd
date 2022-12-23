@@ -6,22 +6,40 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useContext } from "react";
 import { CardContext } from "../../context/cardContext";
+import { Modal } from "../Modal";
 
 export const Header = () => {
-  const {setModal} = useContext(CardContext)
+  const { modal, setModal, logout } = useContext(CardContext);
 
   return (
-    <StyledHeader>
-      <Logo />
-      <div className="navbar">
-        <InputSearch />
-        <Button type="button">
-          <FaShoppingCart />
-        </Button>
-        <Button type="button" onClick={() => setModal(true)}>
-          <FiLogOut />
-        </Button>
-      </div>
-    </StyledHeader>
+    <>
+      {modal && <Modal type={"cart"} />}
+      <StyledHeader>
+        <Logo />
+        <div className="navbar">
+          <InputSearch />
+
+          <Button
+            type="button"
+            onClick={() => setModal(true)}
+            styledSize="small"
+            styledColor="unset"
+            styledIcon={true}
+          >
+            <FaShoppingCart />
+          </Button>
+
+          <Button
+            type="button"
+            onClick={() => logout()}
+            styledSize="small"
+            styledColor="unset"
+            styledIcon={true}
+          >
+            <FiLogOut />
+          </Button>
+        </div>
+      </StyledHeader>
+    </>
   );
 };

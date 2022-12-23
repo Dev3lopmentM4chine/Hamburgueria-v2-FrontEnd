@@ -42,8 +42,4 @@ export const StyledCartProduct = styled.li`
     font-size: var(--font-size-3);
     color: var(--color-grey-50);
   }
-  button {
-    background-color: unset;
-    color: var(--color-grey-20);
-  }
 `;

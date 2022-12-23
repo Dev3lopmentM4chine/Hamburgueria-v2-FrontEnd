@@ -28,4 +28,10 @@ ul, ol, li{
   max-width: 1400px;
   margin: 0 auto;
 }
+
+.errorMessage {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weigth-3);
+  color: var(--color-secondary);
+}
 `;

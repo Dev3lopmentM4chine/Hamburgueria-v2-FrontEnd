@@ -1,20 +1,22 @@
-import { createContext, useEffect, useState, useContext } from "react";
+import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { api } from "../services/api";
 import { IProducts } from "../services/interface";
-import { UserContext } from "./userContext";
 
 interface ICardContextProps {
   list: [] | IProducts[];
   setList: React.Dispatch<React.SetStateAction<IProducts[]>>;
   filteredProducts: string;
   setFilteredProducts: React.Dispatch<React.SetStateAction<string>>;
-  currentSale: [] | IProducts[];
+  currentSale: IProducts[];
   setCurrentSale: React.Dispatch<React.SetStateAction<IProducts[]>>;
   handleClick: (productId: number | null) => void;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  logout: () => void;
 }
+
 interface ICardProviderProps {
   children: React.ReactNode;
 }
@@ -29,28 +31,33 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
   );
   const [modal, setModal] = useState(false);
 
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   useEffect(() => {
-    // const token = JSON.parse(localStorage.getItem("@TOKEN")) || null
+    const token = localStorage.getItem("@accessToken");
 
     const getAllProducts = async () => {
-      const token =
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RlMTAxQGdtYWlsLmNvbSIsImlhdCI6MTY3MTY1MDA2NCwiZXhwIjoxNjcxNjUzNjY0LCJzdWIiOiIzIn0.85nc5dvYODS8PPzG-9CxE26CI_9uonjr5jqPRl6smeU";
+      try {
+        const response = await api.get("/products", {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        });
 
-      if (token) {
-        try {
-          const response = await api.get("/products", {
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          });
-          setList(response.data);
-        } catch (error) {
-          console.log(error);
-        }
+        setList(response.data);
+      } catch (error) {
+        console.log(error);
       }
     };
 
-    getAllProducts();
+    if (token) {
+      getAllProducts();
+    }
   }, [filteredProducts]);
 
   const handleClick = (productId: number | null) => {
@@ -88,6 +95,7 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
         handleClick,
         modal,
         setModal,
+        logout,
       }}
     >
       {children}

@@ -6,6 +6,16 @@ export const StyledProduct = styled.li`
   height: 346px;
   border-radius: var(--radius-1);
   border: 2px solid var(--color-grey-20);
+  transition: ease .5s;
+  
+  :hover{
+    border: 2px solid var(--color-primary);
+    transition: ease .5s;
+  }
+  :hover button[type="button"]{
+    transition: ease .5s;
+    background-color: var(--color-primary);
+  }
 
   display: flex;
   flex-direction: column;

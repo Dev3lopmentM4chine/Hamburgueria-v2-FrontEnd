@@ -1,8 +1,13 @@
 import { useContext } from "react";
 import { CardContext } from "../../context/cardContext";
+import { Cart } from "../Cart";
 import { StyledBackground, StyledModal } from "./style";
 
-export const Modal = (type: string) => {
+interface IModalProps{
+  type: "cart" | string
+}
+
+export const Modal = ({type}: IModalProps) => {
   const { setModal } = useContext(CardContext);
 
   return (
@@ -13,7 +18,9 @@ export const Modal = (type: string) => {
           <button onClick={() => setModal(false)}>X</button>
         </div>
 
-        <div className="content"></div>
+        <div className="content">
+          <Cart/>
+        </div>
       </StyledModal>
     </StyledBackground>
   );

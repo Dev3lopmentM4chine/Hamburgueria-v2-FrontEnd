@@ -9,9 +9,6 @@ export const Cart = () => {
 
   return (
     <StyledCart>
-      <div className="cartTitle">
-        <h3>Carrinho de compras</h3>
-      </div>
       <ul>
         {currentSale.length > 0 ? (
           currentSale.map((element, index) => (

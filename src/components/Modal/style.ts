@@ -5,6 +5,7 @@ export const StyledBackground = styled.div`
   height: 100vh;
   background-color: rgba(18, 18, 20, 0.5);
   z-index: 98;
+  padding: 0px 20px;
 
   display: flex;
   justify-content: center;
@@ -13,63 +14,61 @@ export const StyledBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+
+  @media (min-width: 800px) {
+    padding: 0;
+  }
 `;
 
 export const StyledModal = styled.div`
   width: 100%;
-  max-width: 296px;
-  height: 274px;
-  border-radius: var(--radius-0);
-  background-color: var(--gray-scale-3);
+  max-width: 375px;
+  /* max-height: 212px; */
+  /* max-height: 411px; */
+  background-color: var(--color-grey-0);
   overflow: hidden;
-  z-index: 99;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border-radius: var(--radius-1);
 
   @media (min-width: 800px) {
-    max-width: 369px;
-    height: 342px;
+    max-width: 500px;
+    /* max-height: 371px; */
+    /* max-height: 600px; */
   }
 
   & > .panel {
     width: 100%;
-    height: 40px;
-    background-color: var(--gray-scale-2);
-    padding: 10px 16px;
+    height: 54px;
+    padding: 13px 22px;
+    background-color: var(--color-primary);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
     h3 {
-      font-size: var(--font-size-1);
-      color: var(--gray-scale-0);
-      font-weight: var(--font-weigth-3);
+      color: var(--color-white);
+      font-size: var(--font-size-2);
+      font-weight: var(--font-weigth-2);
     }
 
     button {
-      font-size: var(--font-size-1);
-      color: var(--gray-scale-0);
-      font-weight: var(--font-weigth-3);
-      transition: .5s;
-      &:hover {
-        transition: .5s;
-        color: var(--gray-scale-3);
-      }
+      font-size: var(--font-size-4);
+      color: var(--color-white);
+      opacity: 0.5;
+      transition: 0.5s;
     }
-
-    @media (min-width: 800px) {
-      padding: 12px 20px;
-      height: 50px;
+    
+    button:hover {
+      opacity: 1;
+      transition: 0.5s;
     }
   }
 
-  & > .content {
+  & > .content{
     width: 100%;
     height: 100%;
-  
+    background-color: red;
+    
     display: flex;
     justify-content: center;
     align-items: center;
