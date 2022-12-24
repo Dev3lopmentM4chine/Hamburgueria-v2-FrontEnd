@@ -10,7 +10,7 @@ interface IUserProviderProps {
 
 interface IUserCotextProps {
   login: (data: Ilogin) => void;
-  register: (data: Iregister) => void;
+  register: (data: Iregister, functionReset: any) => void;
 }
 
 interface Ilogin {
@@ -45,9 +45,10 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     }
   };
 
-  const register = async (data: Iregister) => {
+  const register = async (data: Iregister, functionReset: any) => {
     try {
       const response = await api.post("/users", data);
+      functionReset()
       toast.success("Conta criada com sucesso!");
     } catch (error) {
       console.log(error);

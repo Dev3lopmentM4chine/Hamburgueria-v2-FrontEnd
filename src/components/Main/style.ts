@@ -10,8 +10,7 @@ const StyledMain = styled.main`
 
   @media (min-width: 800px) {
     flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
+    justify-content: center;
     gap: 0;
   }
 `;

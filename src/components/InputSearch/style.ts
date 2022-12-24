@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const StyledInputSearch = styled.form`
-  background-color: var(--color-white);
   width: 90%;
   max-width: 382px;
   height: 60px;
   border: 2px solid var(--color-grey-20);
   border-radius: var(--radius-0);
+  background-color: var(--color-white);
   padding: 0px 10px 0px 15px;
+  transition: ease .5s;
 
   display: flex;
   flex-direction: row;
@@ -31,8 +32,8 @@ export const StyledInputSearch = styled.form`
 
   & > button {
     width: 53px;
-    
-    svg{
+
+    svg {
       color: var(--color-white);
     }
   }

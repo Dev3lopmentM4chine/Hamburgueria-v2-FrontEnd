@@ -23,16 +23,12 @@ export const StyledBackground = styled.div`
 export const StyledModal = styled.div`
   width: 100%;
   max-width: 375px;
-  /* max-height: 212px; */
-  /* max-height: 411px; */
   background-color: var(--color-grey-0);
   overflow: hidden;
   border-radius: var(--radius-1);
 
   @media (min-width: 800px) {
     max-width: 500px;
-    /* max-height: 371px; */
-    /* max-height: 600px; */
   }
 
   & > .panel {
@@ -67,7 +63,6 @@ export const StyledModal = styled.div`
   & > .content{
     width: 100%;
     height: 100%;
-    background-color: red;
     
     display: flex;
     justify-content: center;

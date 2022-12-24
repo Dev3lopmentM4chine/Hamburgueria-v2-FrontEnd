@@ -12,10 +12,10 @@ export const StyledProductsList = styled.ul`
   padding-right: 15px;
 
   @media screen and (min-width: 800px) {
-    width: 940px;
-    max-width: 940px;
+    max-width: 1300px;
     height: 735px;
     align-items: flex-start;
+    gap: 33px;
     overflow: unset;
     flex-wrap: wrap;
     padding: 0;

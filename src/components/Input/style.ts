@@ -22,8 +22,12 @@ export const StyledInput = styled.div`
       color: var(--color-grey-40);
     }
 
-    /* :focus {
+    :focus {
       border-color: var(--color-grey-100);
-    } */
+    }
+  }
+
+  @media (min-width: 800px) {
+    max-width: 452px;
   }
 `;

@@ -8,6 +8,17 @@ export const Reset = createGlobalStyle`
   font-family: 'Inter', sans-serif;
 }
 
+html body{
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#root{
+  width: 100%;
+  height: 100%;
+}
+
 input{
     outline: none;
     border: none;

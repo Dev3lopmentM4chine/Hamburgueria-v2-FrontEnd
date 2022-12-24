@@ -2,9 +2,12 @@ import styled from "styled-components";
 
 export const StyledCart = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
 
   @media (min-width: 800px) {
-   
+    
   }
 
   ul {
@@ -19,6 +22,10 @@ export const StyledCart = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 21px;
+
+    @media (min-width: 800px) {
+      align-items: flex-start;
+    }
   }
 
   .noItens {

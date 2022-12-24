@@ -23,6 +23,7 @@ export const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IFormValues>({
+    mode: "onBlur",
     resolver: yupResolver(loginSchema),
   });
 
@@ -68,7 +69,7 @@ export const Login = () => {
 
           <Button
             children="Cadastrar"
-            type="submit"
+            type="button"
             onClick={() => navigate("/register")}
             styledSize="larguer"
             styledColor="grey"

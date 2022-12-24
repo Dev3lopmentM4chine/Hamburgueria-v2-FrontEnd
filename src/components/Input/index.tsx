@@ -17,6 +17,8 @@ export const Input = ({
   register,
   errors,
 }: IInputProps) => {
+  console.log(errors);
+
   return (
     <StyledInput>
       {/* <label htmlFor={id}>{title}</label> */}
@@ -27,9 +29,7 @@ export const Input = ({
         {...register(id)}
         required
       />
-      {/* {errors.email?.message && (
-              <p className="errorMessage">{errors.email.message}</p>
-            )} */}
+      {/* {errors?.message && <p className="errorMessage">{errors.message}</p>} */}
     </StyledInput>
   );
 };
