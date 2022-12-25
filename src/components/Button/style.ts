@@ -50,7 +50,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
     }
   }}
 
-  ${({styledIcon}) => {
+  ${({ styledIcon }) => {
     if(styledIcon === true){
       return css`
         svg{
@@ -60,7 +60,6 @@ export const StyledButton = styled.button<IStyledButtonProps>`
       `
     }
   }}
-
 
   font-weight: var(--font-weight-1);
   font-size: var(--font-size-3);

@@ -6,15 +6,12 @@ export const StyledHeader = styled.header`
   background-color: var(--color-grey-0);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   @media screen and (min-width: 800px) {
-    width: 100%;
-    height: 80px;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0 100px;
+    padding: 0px 6px 0px 25px;
   }
 
   & > button[type="button"] {

@@ -12,12 +12,6 @@ export const CartTotal = () => {
 
   const counter = currentSale.reduce((x:any, y:any) => x + y.price, 0);
 
-  console.log(currentSale)
-
-  const removeAllProducts = () => {
-    setCurrentSale([]);
-  };
-
   return (
     <StyledCartTotal>
       <div className="cartCounter">
@@ -33,7 +27,7 @@ export const CartTotal = () => {
       <Button
         children={"Remover todos"}
         type={"button"}
-        onClick={() => removeAllProducts()}
+        onClick={() => setCurrentSale([])}
         styledSize="larguer"
         styledColor="grey"
       />

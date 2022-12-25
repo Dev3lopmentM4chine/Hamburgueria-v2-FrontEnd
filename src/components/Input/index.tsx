@@ -21,7 +21,6 @@ export const Input = ({
 
   return (
     <StyledInput>
-      {/* <label htmlFor={id}>{title}</label> */}
       <input
         id={id}
         placeholder={placeholder}
@@ -29,7 +28,6 @@ export const Input = ({
         {...register(id)}
         required
       />
-      {/* {errors?.message && <p className="errorMessage">{errors.message}</p>} */}
     </StyledInput>
   );
 };
