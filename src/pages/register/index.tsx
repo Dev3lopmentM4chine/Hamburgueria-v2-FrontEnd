@@ -7,6 +7,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
+import { Container } from "../../components/Container";
 
 interface IFormValues {
   name: string;
@@ -42,57 +43,61 @@ export const Register = () => {
   };
 
   return (
-    <StyledRegisterContainer>
-      <StyledRegister onSubmit={handleSubmit(submitFunction)} noValidate>
-        <div className="panel">
-          <h3>Cadastro</h3>
-          <span onClick={() => navigate("/login")}>Retornar para o login</span>
-        </div>
+    <Container>
+      <StyledRegisterContainer>
+        <StyledRegister onSubmit={handleSubmit(submitFunction)} noValidate>
+          <div className="panel">
+            <h3>Cadastro</h3>
+            <span onClick={() => navigate("/login")}>
+              Retornar para o login
+            </span>
+          </div>
 
-        <div className="containerInputs">
-          <Input
-            id="name"
-            title="Nome"
-            placeholder="Nome"
-            type="text"
-            register={register}
-            errors={errors}
-          />
-          <Input
-            id="email"
-            title="Email"
-            placeholder="email"
-            type="text"
-            register={register}
-            errors={errors}
-          />
-          <Input
-            id="password"
-            title="Senha"
-            placeholder="Senha"
-            type="password"
-            register={register}
-            errors={errors}
-          />
-          <Input
-            id="passwordConfirm"
-            title="Confirmar senha"
-            placeholder="Confirmar senha"
-            type="password"
-            register={register}
-            errors={errors}
-          />
-        </div>
+          <div className="containerInputs">
+            <Input
+              id="name"
+              title="Nome"
+              placeholder="Nome"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              id="email"
+              title="Email"
+              placeholder="email"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              id="password"
+              title="Senha"
+              placeholder="Senha"
+              type="password"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              id="passwordConfirm"
+              title="Confirmar senha"
+              placeholder="Confirmar senha"
+              type="password"
+              register={register}
+              errors={errors}
+            />
+          </div>
 
-        <div className="containerButtons">
-          <Button
-            children="Cadastrar"
-            type="submit"
-            styledSize="larguer"
-            styledColor="grey"
-          />
-        </div>
-      </StyledRegister>
-    </StyledRegisterContainer>
+          <div className="containerButtons">
+            <Button
+              children="Cadastrar"
+              type="submit"
+              styledSize="larguer"
+              styledColor="grey"
+            />
+          </div>
+        </StyledRegister>
+      </StyledRegisterContainer>
+    </Container>
   );
 };

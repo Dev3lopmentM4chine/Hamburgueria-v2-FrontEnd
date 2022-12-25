@@ -4,12 +4,11 @@ export const StyledLogin = styled.form`
   width: 95%;
   max-width: 383px;
   height: 461px;
-  /* background-color: var(--color-white); */
-  background-color: pink;
+  background-color: var(--color-white);
   border-radius: var(--radius-1);
-  box-shadow: 3px 3px 3px 3px var(--color-grey-0);
+  border: 2px solid var(--color-grey-0);
   padding: 26px 24px;
-
+  
   display: flex;
   flex-direction: column;
   gap: 19px;
@@ -17,6 +16,7 @@ export const StyledLogin = styled.form`
   @media (min-width: 800px) {
     width: 100%;
     max-width: 500px;
+    order: -1;
   }
 
   & > h3 {
@@ -32,12 +32,11 @@ export const StyledLogin = styled.form`
     justify-content: space-between;
   }
   & > .containerInputs {
-    background-color: red;
-    height: 195px;
+    height: 145px;
+    max-height: 195px;
     gap: 25px;
   }
   & > .containerButtons {
-    background-color: blueviolet;
     height: 196px;
 
     span {
@@ -52,12 +51,20 @@ export const StyledLogin = styled.form`
 export const StyledLoginContainer = styled.div`
   width: 100%;
   height: 648px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 
   @media (min-width: 800px) {
     max-width: 939px;
     height: 461px;
+    margin: 0;
+
+    flex-direction: row;
+    justify-content: space-between;
   }
 `;

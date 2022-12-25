@@ -7,6 +7,8 @@ import { UserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { loginSchema } from "./loginSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { IllustrationBox } from "../../components/IllustrationBox";
+import { Container } from "../../components/Container";
 
 interface IFormValues {
   email: string;
@@ -32,50 +34,54 @@ export const Login = () => {
   };
 
   return (
-    <StyledLoginContainer>
-      <StyledLogin onSubmit={handleSubmit(submitFunction)} noValidate>
-        <h3>Login</h3>
+    <Container>
+      <StyledLoginContainer>
+        <IllustrationBox />
 
-        <div className="containerInputs">
-          <Input
-            id="email"
-            title="Email"
-            placeholder="email"
-            type="text"
-            register={register}
-            errors={errors}
-          />
-          <Input
-            id="password"
-            title="Senha"
-            placeholder="Senha"
-            type="password"
-            register={register}
-            errors={errors}
-          />
-        </div>
+        <StyledLogin onSubmit={handleSubmit(submitFunction)} noValidate>
+          <h3>Login</h3>
 
-        <div className="containerButtons">
-          <Button
-            children="Logar"
-            type="submit"
-            styledSize="larguer"
-            styledColor=""
-          />
+          <div className="containerInputs">
+            <Input
+              id="email"
+              title="Email"
+              placeholder="email"
+              type="text"
+              register={register}
+              errors={errors}
+            />
+            <Input
+              id="password"
+              title="Senha"
+              placeholder="Senha"
+              type="password"
+              register={register}
+              errors={errors}
+            />
+          </div>
 
-          <span>
-            Crie sua conta para saborear muitas delícias e matar sua fome!
-          </span>
+          <div className="containerButtons">
+            <Button
+              children="Logar"
+              type="submit"
+              styledSize="larguer"
+              styledColor=""
+            />
 
-          <Button
-            children="Cadastrar"
-            type="button"
-            onClick={() => navigate("/register")}
-            styledSize="larguer"
-            styledColor="grey"
-          />
-        </div>
-      </StyledLogin>
-    </StyledLoginContainer>
+            <span>
+              Crie sua conta para saborear muitas delícias e matar sua fome!
+            </span>
+
+            <Button
+              children="Cadastrar"
+              type="button"
+              onClick={() => navigate("/register")}
+              styledSize="larguer"
+              styledColor="grey"
+            />
+          </div>
+        </StyledLogin>
+      </StyledLoginContainer>
+    </Container>
   );
 };

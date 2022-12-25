@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const StyledInput = styled.div`
   width: 100%;
   max-width: 347px;
-  height: 85px;
+  height: 60px;
+  max-height: 85px;
   background-color: unset;
 
   & > label {
