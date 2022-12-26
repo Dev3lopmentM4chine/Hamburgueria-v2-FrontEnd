@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { Container } from "../../components/Container";
+import { IllustrationBox } from "../../components/IllustrationBox";
 
 interface IFormValues {
   name: string;
@@ -45,6 +46,8 @@ export const Register = () => {
   return (
     <Container>
       <StyledRegisterContainer>
+        <IllustrationBox/>
+
         <StyledRegister onSubmit={handleSubmit(submitFunction)} noValidate>
           <div className="panel">
             <h3>Cadastro</h3>

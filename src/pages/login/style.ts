@@ -1,5 +1,25 @@
 import styled from "styled-components";
 
+export const StyledLoginContainer = styled.div`
+  width: 100%;
+  height: 648px;  
+  margin: 20px 0px 20px 0px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  @media (min-width: 800px) {
+    max-width: 939px;
+    height: 461px;
+    margin: 0;
+
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
 export const StyledLogin = styled.form`
   width: 95%;
   max-width: 383px;
@@ -48,23 +68,3 @@ export const StyledLogin = styled.form`
   }
 `;
 
-export const StyledLoginContainer = styled.div`
-  width: 100%;
-  height: 648px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-
-  @media (min-width: 800px) {
-    max-width: 939px;
-    height: 461px;
-    margin: 0;
-
-    flex-direction: row;
-    justify-content: space-between;
-  }
-`;
