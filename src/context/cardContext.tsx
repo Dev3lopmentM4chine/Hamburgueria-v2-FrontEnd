@@ -70,26 +70,6 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
     const product = list.find((element) => element.id === productId);
     
     console.log(product)
-
-    // console.log(currentSale)
-
-    // if(product){
-    //   if(currentSale.length > 0){
-    //     const newList = currentSale
-    //     newList.forEach(element => {
-    //       if(element.id === product.id){
-    //         element.amount += 1
-    //         setCurrentSale([...newList])
-    //       }else{
-    //         product.amount += 1
-    //         setCurrentSale([...newList, product])
-    //       }
-    //     })
-    //   }else{
-    //     product.amount += 1
-    //     setCurrentSale([product])
-    //   }
-    // }
   };
 
   return (

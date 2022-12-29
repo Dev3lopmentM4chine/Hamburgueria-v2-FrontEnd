@@ -28,7 +28,7 @@ export const CartProduct = ({ prod }: ICartProductProps) => {
 
         <div className="productInfo">
           <h3 className="name">{prod.name}</h3>
-          {/* <span className="category">{prod.category}</span> */}
+ 
           <div className="productCounter">
             <button> + </button>
 
@@ -51,3 +51,7 @@ export const CartProduct = ({ prod }: ICartProductProps) => {
     </StyledCartProduct>
   );
 };
+function useEffect(arg0: () => void, arg1: IProducts[][]) {
+  throw new Error("Function not implemented.");
+}
+

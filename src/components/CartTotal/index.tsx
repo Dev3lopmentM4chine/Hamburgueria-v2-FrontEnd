@@ -5,6 +5,7 @@ import { useContext, useEffect } from "react";
 
 export const CartTotal = () => {
   const { currentSale, setCurrentSale } = useContext(CardContext);
+
   let counter = currentSale.reduce(
     (x: any, y: any) => x + y.price * y.amount,
     0

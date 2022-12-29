@@ -1,7 +1,7 @@
 import { StyledCart } from "./style";
 import { CartProduct } from "../CartProduct";
 import { CartTotal } from "../CartTotal";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CardContext } from "../../context/cardContext";
 
 export const Cart = () => {
@@ -27,9 +27,10 @@ export const Cart = () => {
       {currentSale.length > 0 ? (
         <CartTotal />
       ) : (
-        null
+        ""
       )}
     </StyledCart>
   );
 };
+
 
