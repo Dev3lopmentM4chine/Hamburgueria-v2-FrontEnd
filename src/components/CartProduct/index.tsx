@@ -28,7 +28,14 @@ export const CartProduct = ({ prod }: ICartProductProps) => {
 
         <div className="productInfo">
           <h3 className="name">{prod.name}</h3>
-          <span className="category">{prod.category}</span>
+          {/* <span className="category">{prod.category}</span> */}
+          <div className="productCounter">
+            <button> + </button>
+
+            <span> {prod.amount} </span>
+            
+            <button> - </button>
+          </div>
         </div>
       </div>
 

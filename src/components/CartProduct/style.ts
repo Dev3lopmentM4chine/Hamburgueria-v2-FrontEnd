@@ -46,10 +46,21 @@ export const StyledCartProduct = styled.li`
       white-space: nowrap;
       text-overflow: ellipsis;
     }
-    & > .productInfo span {
+    /* & > .productInfo span {
       font-weight: var(--font-weight-0);
       font-size: var(--font-size-3);
       color: var(--color-grey-50);
+    } */
+
+    & > .productInfo .productCounter{
+      width: 106px;
+      height: 34px;
+      background-color: var(--color-grey-20);
+      color: var(--color-secondary);
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 `;

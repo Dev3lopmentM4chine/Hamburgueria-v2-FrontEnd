@@ -1,16 +1,14 @@
 import { StyledCartTotal } from "./style.js";
 import { Button } from "../Button/index";
 import { CardContext } from "../../context/cardContext.js";
-import { useContext } from "react";
-
-interface Icounter{
-  
-}
+import { useContext, useEffect } from "react";
 
 export const CartTotal = () => {
   const { currentSale, setCurrentSale } = useContext(CardContext);
-
-  const counter = currentSale.reduce((x:any, y:any) => x + y.price, 0);
+  let counter = currentSale.reduce(
+    (x: any, y: any) => x + y.price * y.amount,
+    0
+  );
 
   return (
     <StyledCartTotal>

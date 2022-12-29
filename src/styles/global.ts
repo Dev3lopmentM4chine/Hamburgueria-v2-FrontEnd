@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-grey-40:#999999;
     --color-grey-30: #BDBDBD;
     --color-grey-20: #E0E0E0;
+    --color-grey-10: #F2F2F2;
     --color-grey-0: #F5F5F5;
 
     /* Font: Size */

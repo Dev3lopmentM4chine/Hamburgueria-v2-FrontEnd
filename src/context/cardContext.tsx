@@ -49,7 +49,13 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
           },
         });
 
-        setList(response.data);
+        let newResponse =  response.data
+
+        newResponse.forEach((element:IProducts) => {
+          element.amount = 0
+        })
+
+        setList(newResponse);
       } catch (error) {
         console.log(error);
       }
@@ -61,26 +67,29 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
   }, [filteredProducts]);
 
   const handleClick = (productId: number | null) => {
-    const productSale = list.filter((element) => {
-      return element.id === productId;
-    });
+    const product = list.find((element) => element.id === productId);
+    
+    console.log(product)
 
-    if (currentSale.length > 0) {
-      let verify = true;
+    // console.log(currentSale)
 
-      currentSale.forEach((element) => {
-        if (element.id === productId) {
-          toast.error("Produto já esta no carrinho!");
-          verify = false;
-        }
-      });
-
-      if (verify) {
-        setCurrentSale([...currentSale, productSale[0]]);
-      }
-    } else {
-      setCurrentSale([...productSale]);
-    }
+    // if(product){
+    //   if(currentSale.length > 0){
+    //     const newList = currentSale
+    //     newList.forEach(element => {
+    //       if(element.id === product.id){
+    //         element.amount += 1
+    //         setCurrentSale([...newList])
+    //       }else{
+    //         product.amount += 1
+    //         setCurrentSale([...newList, product])
+    //       }
+    //     })
+    //   }else{
+    //     product.amount += 1
+    //     setCurrentSale([product])
+    //   }
+    // }
   };
 
   return (
