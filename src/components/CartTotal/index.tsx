@@ -2,21 +2,17 @@ import { StyledCartTotal } from "./style.js";
 import { Button } from "../Button/index";
 import { CardContext } from "../../context/cardContext.js";
 import { useContext, useEffect } from "react";
+import { IProducts } from "../../services/interface.js";
 
 export const CartTotal = () => {
-  const { currentSale, setCurrentSale } = useContext(CardContext);
-
-  let counter = currentSale.reduce(
-    (x: any, y: any) => x + y.price * y.amount,
-    0
-  );
+  const { counter, currentSale,setCurrentSale } = useContext(CardContext);
 
   return (
     <StyledCartTotal>
       <div className="cartCounter">
         <span>Total</span>
         <span>
-          {counter.toLocaleString("pt-BR", {
+          {counter(currentSale).toLocaleString("pt-BR", {
             style: "currency",
             currency: "BRL",
           })}
@@ -26,7 +22,10 @@ export const CartTotal = () => {
       <Button
         children={"Remover todos"}
         type={"button"}
-        onClick={() => setCurrentSale([])}
+        onClick={() => {
+          setCurrentSale([])
+          console.log(currentSale)
+        }}
         styledSize="larguer"
         styledColor="grey"
       />

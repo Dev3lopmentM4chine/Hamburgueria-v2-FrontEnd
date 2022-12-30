@@ -52,7 +52,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       toast.success("Conta criada com sucesso!");
     } catch (error) {
       console.log(error);
-      // toast.error("")
+      toast.error("Verifique os campos!")
     }
   };
 

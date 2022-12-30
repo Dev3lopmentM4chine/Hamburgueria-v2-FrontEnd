@@ -10,14 +10,28 @@ interface ICartProductProps {
 }
 
 export const CartProduct = ({ prod }: ICartProductProps) => {
-  const { currentSale, setCurrentSale } = useContext(CardContext);
+  const { currentSale, setCurrentSale, handleClick } = useContext(CardContext);
 
   const deleteProduct = (productId: number) => {
     let newList = currentSale.filter(
       (element: IProducts) => element.id !== productId
     );
-    setCurrentSale(newList);
+    setCurrentSale([...newList]);
   };
+
+  const removeAmount = (prodID:number) => {
+    let newCurrentSale = currentSale
+
+    newCurrentSale.forEach(element => {
+      if(element.id === prodID){
+        if(element.amount > 1){
+          element.amount -= 1
+        }
+      }
+    })
+
+    setCurrentSale([...newCurrentSale])
+  }
 
   return (
     <StyledCartProduct>
@@ -30,11 +44,11 @@ export const CartProduct = ({ prod }: ICartProductProps) => {
           <h3 className="name">{prod.name}</h3>
  
           <div className="productCounter">
-            <button> + </button>
+            <button onClick={() => handleClick(prod.id)}> + </button>
 
             <span> {prod.amount} </span>
             
-            <button> - </button>
+            <button onClick={() => removeAmount(prod.id)}> - </button>
           </div>
         </div>
       </div>
@@ -51,7 +65,3 @@ export const CartProduct = ({ prod }: ICartProductProps) => {
     </StyledCartProduct>
   );
 };
-function useEffect(arg0: () => void, arg1: IProducts[][]) {
-  throw new Error("Function not implemented.");
-}
-

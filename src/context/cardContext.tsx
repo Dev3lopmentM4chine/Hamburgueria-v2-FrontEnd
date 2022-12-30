@@ -11,6 +11,7 @@ interface ICardContextProps {
   setFilteredProducts: React.Dispatch<React.SetStateAction<string>>;
   currentSale: IProducts[];
   setCurrentSale: React.Dispatch<React.SetStateAction<IProducts[]>>;
+  counter: (list: IProducts[]) => number;
   handleClick: (productId: number | null) => void;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,6 +30,7 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
   const [currentSale, setCurrentSale] = useState<IProducts[]>(
     [] as IProducts[]
   );
+
   const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
@@ -49,11 +51,11 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
           },
         });
 
-        let newResponse =  response.data
+        let newResponse = response.data;
 
-        newResponse.forEach((element:IProducts) => {
-          element.amount = 0
-        })
+        newResponse.forEach((element: IProducts) => {
+          element.amount = 0;
+        });
 
         setList(newResponse);
       } catch (error) {
@@ -63,13 +65,63 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
 
     if (token) {
       getAllProducts();
+    }else{
+      localStorage.clear()
+      navigate("/login");
     }
-  }, [filteredProducts]);
+    
+  }, [filteredProducts, currentSale]);
+
+  let counter = (list: IProducts[]) => {
+    let counter = 0;
+
+    if (list.length < 1) {
+      return counter;
+    } else {
+      return (counter = list.reduce(
+        (x: any, y: any) => x + y.price * y.amount,
+        0
+      ));
+    }
+  };
 
   const handleClick = (productId: number | null) => {
     const product = list.find((element) => element.id === productId);
-    
-    console.log(product)
+
+    console.log(product);
+
+    if (product) {
+      if (currentSale.length > 0) {
+        let alreadyInTheCart = null;
+
+        currentSale.forEach((element) => {
+          console.log(element.name)
+          if(element.id === product.id){
+            alreadyInTheCart = true
+          }
+        });
+
+        if (alreadyInTheCart) {
+          let newCurrentSale = [...currentSale];
+
+          newCurrentSale.forEach((element) => {
+            if (element.id === product.id) {
+              element.amount += 1;
+            }
+          });
+
+          setCurrentSale([...newCurrentSale]);
+        } else {
+          product.amount = 1;
+          setCurrentSale([...currentSale, product]);
+        }
+      }
+
+      if (currentSale.length < 1) {
+        product.amount = 1;
+        setCurrentSale([product]);
+      }
+    }
   };
 
   return (
@@ -81,6 +133,7 @@ export const CardProvider = ({ children }: ICardProviderProps) => {
         setFilteredProducts,
         currentSale,
         setCurrentSale,
+        counter,
         handleClick,
         modal,
         setModal,
